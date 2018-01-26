@@ -1,0 +1,62 @@
+<!--<!doctype html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="Palette.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <script src="Palette.js"></script>
+    <script src="index.js"></script>
+
+</head>
+<!--calc(100% - 22px);  减号两端必须有空格-->
+<body>
+<main>
+    <ul class="left">
+        <li class="iconfont icon-xian tool" id="line" active="true"></li>
+        <li class="iconfont icon-xuxian tool" id="dashed"></li>
+        <li class="iconfont icon-qianbi tool" id="pencil"></li>
+        <li class="iconfont icon-wenzi tool" id="pen"></li>
+        <div class="fgx"></div>
+
+        <li class="iconfont icon-yuan tool" id="circle"></li>
+        <li class="iconfont icon-rectangle tool" id="rect"></li>
+        <li class="iconfont icon-wubianxing tool" id="poly"></li>
+        <li class="iconfont icon-wujiaoxing2 tool" id="polyJ"></li>
+
+        <div class="fgx"></div>
+
+        <li class="iconfont icon-tianchong" id="fill"></li>
+        <li id="fc"><input type="color" id="fcbtn"></li>
+        <li class="iconfont icon-border_color" id="stroke"></li>
+        <li id="sc"><input type="color" id="scbtn"></li>
+    </ul>
+    <div class="right">
+        <div class="top">
+            <a href="" class="save"><i class="iconfont icon-baocun"></i></a>
+            <button class="new"><i class="iconfont icon-xinjian"></i></button>
+            <button class="recall"><i class="iconfont icon-chexiao"></i></button>
+
+            <button class="empty"><i class="iconfont icon-laji"></i></button>
+            <button class="clip"><i class="iconfont icon-caijian"></i></button>
+            <button class="eraser"><i class="iconfont icon-xiangpica_s "></i></button>
+            <button class="reverse">反向</button>
+        </div>
+        <div class="bottom">
+            <canvas width="1000" height="600"></canvas>
+            <div class="opacity"></div>
+            <div id="eraser"></div>
+            <div id="clipObj"></div>
+        </div>
+    </div>
+</main>
+
+
+
+<!--<div contenteditable="">可编辑</div>-->
+<!--拖拽的位置等于当前鼠标位置+鼠标变化的距离-->
+</body>
+</html>

@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    background: url('../2.png') no-repeat center/cover;
+    width: 100vw;
+    height: 100vh;
+}
+.sence{
+    width:600px;
+    height:600px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-left: -300px;
+    margin-top: -300px;
+    /*background: lightskyblue;*/
+    border-left: 1px solid black;
+    border-bottom:1px solid black;
+    background: rgba(255,255,255,0.8);
+}

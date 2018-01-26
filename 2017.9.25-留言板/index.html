@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+	/* .box{
+		width: 100px;
+		height: 100px;
+		background:pink;
+	} */
+	.box1{
+		width: 100px;
+		height: 100px;
+		background:pink;
+		position: absolute;
+		top: 50%;
+		left: 65%;
+	}
+	.son{
+		width: 100px;
+		height: 100px;
+		background:skyblue;
+		position: absolute;
+		top: 40%;
+		left: 30%;
+	}
+</style>
+<body>
+	<!-- <div class="box" onclick='alert(1)'></div> -->
+	<div class="box1"></div>
+	<div class="son"></div>
+
+
+<script>
+//第一个参数 事件类型
+//第一个参数 事件处理函数
+//第一个参数 布尔值  （可写可不写） 大多情况写false
+	// let box=document.querySelector('.box');
+	// box.addEventListener('click',function(){
+	// 	this.style.background="skyblue";
+	// },false)
+	// box.addEventListener('click',function(){
+	// 	this.style.borderRadius="50%";
+	// })
+
+	// box.addEventListener('click',fn);
+	// box.removeEventListener('click',fn,false);
+	// box.removeEventListener('click',fn,)
+	// 	function fn(){
+	// 		this.style.transform='scale(2,2)'
+	// 	}
+	// 	
+	// 	
+	// window.addEventListener('load',function(){
+	// 	let box1=document.querySelector('div.box1');
+	// 	console.log(box1)
+	// 	box1.addEventListener('mousedown',function(e){
+	// 		let ox=e.offsetX;
+	// 		let oy=e.offsetY;
+	// 		box1.addEventListener('mousemove',fn)
+	// 		box1.addEventListener('mouseup',function(){
+	// 			box1.removeEventListener('mousemove',fn)
+	// 		})
+	// 		function fn(e){
+	// 			let lefts=e.clientX-ox;
+	// 			let tops=e.clientY-oy;
+	// 			this.style.left=`${lefts}px`;
+	// 			this.style.top=`${tops}px`;
+	// 		}
+	// 	})
+
+	// })
+	
+	// window.addEventListener('load',function(){
+	// 	let box1=document.querySelector('div.box1');
+	// 	console.log(box1)
+	// 	box1.addEventListener('mousedown',function(e){
+	// 		let ox=e.offsetX;
+	// 		let oy=e.offsetY;
+	// 		document.addEventListener('mousemove',fn)
+	// 		box1.addEventListener('mouseup',function(){
+	// 			document.removeEventListener('mousemove',fn)
+	// 		})
+	// 		function fn(e){
+	// 			let lefts=e.clientX-ox;
+	// 			let tops=e.clientY-oy;
+	// 			box1.style.left=`${lefts}px`;
+	// 			box1.style.top=`${tops}px`;
+	// 		}
+	// 	})
+
+	// })
+let box1=document.querySelector('div.box1');
+class Drag{
+	constructor(obj){
+		this.obj=obj;
+	}
+	move(){
+		let that=this;;
+		this.obj.addEventListener('mousedown',function(e){
+			let ox=e.offsetX,oy=e.offsetY;
+			document.addEventListener('mousemove',fn);
+		that.obj.addEventListener('mouseup',function(){
+			document.removeEventListener('mousemove',fn);
+		})
+		
+		function fn(e){
+			let cx=e.clientX-ox,cy=e.clientY-oy;
+			that.obj.left=`${cx}px`;
+			that.obj.top=`${cy}px`;
+		}
+		})
+	}
+}
+let new1=new Drag(box1);
+new1.move();
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>个人作品展示</title>
+<meta charset="utf-8"/>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="Flower Power2/js/jquery-3.2.1.js"></script> <!--此处需引入jquery文件-->
+<style type="text/css">
+* {
+margin: 0;
+padding: 0;
+}
+body {
+background: url('back.jpg') no-repeat center/cover;
+/* font-family: "Microsoft Yahei"; */
+}
+h1 {
+margin-top: 120px;
+text-align: center;
+color: #fff;
+} 
+.navWrap {
+position: relative;
+width: 350px;
+height: 350px;
+margin: 60px auto;
+border: 2px dotted #fff;
+border-radius: 50%;
+}
+.navWrap .main-nav {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);/*分别向左上移动元素对象的50%，保证居中*/
+width: 40px;
+height: 40px;
+line-height: 40px;
+font-size: 12px;
+text-align: center;
+text-decoration: none;
+color: #fff;
+border-radius: 3px;
+text-shadow: 1px 1px 0px #000;
+background: #15a5f3;
+cursor: pointer;
+} 
+.navWrap nav {
+position: absolute;
+width: 100%;
+height: 100%;
+transform: scale(0);
+transition: all 0.5s ease-out;
+opacity: 0;
+} 
+.navWrap.active nav {
+transform: scale(1);
+opacity: 1;
+}
+.navWrap nav > a{
+position: absolute;
+width: 50px;
+height:50px;
+background: skyblue;
+text-align: center;
+line-height: 50px;
+text-decoration: none;
+color: #fff;
+border-radius: 5px;
+text-shadow: 1px 1px 0px #000;
+transform: translate(-50%,-50%);
+font-size: 14px;
+} 
+.navWrap nav > a:nth-of-type(3){
+  line-height: 25px;
+}
+.navWrap nav > a:nth-of-type(8){
+  line-height: 25px;
+}
+</style>
+</head> 
+<body>
+ 
+<h1>个人作品展示</h1>
+ 
+<div class="navWrap">
+<nav>
+	<a href="2017.9.25-留言板/liuyanban.html" target="blank">留言板</a>
+
+    <a href="2017.9.27-通讯录/index.html" target="blank">通讯录</a>
+ 
+    <a href="2017.9.28-打字游戏/youxi.html" target="blank">打字</br>游戏</a>
+
+    <a href="2017.9.29-贪吃蛇/snake.html" target="blank">贪吃蛇</a>
+
+    <a href="2017.10.10--画板/Palette.html" target="blank">画板</a>
+
+    <a href="2017.10.17-扑克牌/poke.html" target="blank">扑克牌</a>
+
+     <a href="2017.10.26-棋盘-sass/qipan.html" target="blank">五子棋</a>
+
+    <a href="Flower Power2/index.html" target="blank">Flower Power</a>
+</nav>
+<a class="main-nav">点我</a>
+</div>
+ 
+<script type="text/javascript">
+$(document).ready(function() {
+var isLocated = false; //防止重复初始化子菜单位置
+$(".navWrap").on('click', '.main-nav', function(event) {   //委派
+event.preventDefault();
+var me = $(this);
+var navWrap = me.closest('.navWrap');
+var nav = navWrap.find('nav a');
+if(!navWrap.hasClass('active')&&!isLocated){ 
+	//Y=R+Rsinθ
+	//X=R+Rcosθ
+	var r = navWrap.width()/2;
+	var startAngle =0, endAngle=360; //可以通过改变角度，做出各种各样的径向菜单
+	 
+	//子菜单的夹角
+	var total = nav.length;
+	console.log(total);
+	var gap = (endAngle - startAngle)/total;
+	console.log(gap);
+	 
+	//角度->弧度
+	var radian = Math.PI/180;
+	 
+	/*
+	* 计算并确定各个子菜单的最终位置
+	*/
+	$.each(nav,function(index, el) {
+	// 当前子菜单与x轴正向的夹角 θ （角度->弧度）
+	var myAngle = (startAngle + gap*index) * radian; // θ
+	var x = r+r*Math.cos(myAngle),//myAngle为弧度
+	y = r+r*Math.sin(myAngle);
+	// 设置当前子菜单的位置 (left,top) = (x,y)
+	$(this).css({
+	left: x + 'px',
+	top: y + 'px'
+	});
+	});
+	isLocated = true;
+}
+navWrap.toggleClass('active');
+});
+})
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/poke.js"></script>
+</head>
+
+<style>
+   *{
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+    html,body{
+        width:100%;
+        height: 100%;
+    }
+    body{
+        overflow: hidden;
+        background: url('img/1.jpg')no-repeat center/cover;
+        position: relative;
+    }
+    .big{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .zhuozi{
+        width: 700px;
+        height:600px;
+        /*border: 1px solid steelblue;*/
+        position: absolute;
+        top:calc(50% - 300px);
+        left:calc(50% - 350px);
+    }
+
+    .box{
+        width: 90px;
+        height: 140px;
+        /*background-color: lightskyblue;*/
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        top:0;
+        left:calc(50% - 50px);
+        opacity: 0;
+
+    }
+
+    .active{
+        box-shadow: 0 0 0 3px skyblue;
+    }
+   div[class*=btn]{
+       width:90px;
+       height: 40px;
+       background: skyblue;
+       border-radius: 5px;
+       text-align: center;
+       line-height:40px;
+       font-size: 24px;
+   }
+    .btnR{
+        position: absolute;
+        top:490px;
+        left:calc(50% - 45px);
+    }
+   .btnL{
+       position: absolute;
+       top:540px;
+       left:calc(50% - 45px);
+   }
+</style>
+
+<body>
+    <div class="big"></div>
+    <div class="zhuozi">
+        <div class="btnR ">&gt</div>
+        <div class="btnL ">&lt</div>
+    </div>
+
+</body>
+</html>

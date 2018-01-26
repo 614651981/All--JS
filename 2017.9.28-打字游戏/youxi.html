@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/youxi.css">
+
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    .box{
+        width:60px;
+        height:60px;
+        /*background:skyblue;*/
+        color:deeppink;
+        line-height: 60px;
+        border-radius: 8px;
+        position: absolute;
+        left: 0;
+        top:0;
+        text-align: center;
+        /*font-size: 20px;*/
+        font-size:0;
+
+    }
+</style>
+<body>
+<a class="title1">得分:  <span>0</span></a>
+<a class="title1">HP:  <span>10</span></a>
+<a class="title1">关卡:  <span>1</span></a>
+<a class="title1 title2">暂停</a>
+<a class="title1 title2">继续</a>
+<a class="title1 title2">下一关</a>
+<a class="title1 title2">重新开始</a>
+<div class="success">通关成功</div>
+<div class="record">
+    <!--<select name="" id="">-->
+        <!--<option value="">简单</option>-->
+        <!--<option value="">一般</option>-->
+        <!--<option value="">复杂</option>-->
+    <!--</select>-->
+</div>
+<script src="js/youxi.js"></script>
+<script>
+    window.onload=function () {
+        let word = new Game();
+        word.start();
+
+        let stop=document.querySelectorAll('a')[3];
+        console.log(stop);
+        stop.onclick=function(){
+            word.stop();
+        };
+        let jixu=document.querySelectorAll('a')[4];
+        jixu.onclick=function(){
+            word.drop();
+        };
+
+        let xyg=document.querySelectorAll('a')[5];
+        console.log(xyg);
+        xyg.onclick=function(){
+          success.style.opacity=0;
+          word.next();
+        };
+
+        // let success=document.querySelector('.success')[0];
+        let kaishi=document.querySelectorAll('a')[6];
+        console.log(xyg);
+        kaishi.onclick=function(){
+            success.style.opacity=0;
+            word.restart();
+            
+        };
+    }
+
+</script>
+</body>
+</html>
